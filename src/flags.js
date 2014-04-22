@@ -2,8 +2,6 @@
 
 "use strict";
 
-var FlagValue = require('./flagvalue.js');
-
 /** Convert string to uppercase */
 function to_upper_case(m) {
 	return m.toUpperCase();
@@ -13,6 +11,11 @@ var debug = require('nor-debug');
 var is = require('nor-is');
 var copy = require('nor-data').copy;
 
+/** Returns `true` if `x` is `true` */
+function is_true(x) {
+	return !!( x === true );
+}
+
 /** Flags constructor */
 function Flags(opts) {
 	var self = this;
@@ -21,11 +24,9 @@ function Flags(opts) {
 	debug.assert(opts).is('object');
 	opts = copy(opts);
 	Object.keys(opts).forEach(function(key) {
-		self[key] = FlagValue.parse(opts[key]);
+		self[key] = is_true(opts[key]);
 	});
 }
-
-Flags.Value = FlagValue;
 
 /** */
 Flags.parse = function(o) {
@@ -43,10 +44,10 @@ Flags.prototype.merge = function(b) {
 	debug.assert(b).is('object');
 	b = Flags.parse(b);
 	Object.keys(b).forEach(function(key) {
-		if(a[key]) {
-			a[key] = Flags.Value.merge(a[key], b[key]);
+		if(a[key] !== undefined) {
+			a[key] = !!( is_true(a[key]) || is_true(b[key]) );
 		} else {
-			a[key] = Flags.Value.parse(b[key]);
+			a[key] = is_true(b[key]);
 		}
 	});
 	return a;
