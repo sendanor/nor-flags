@@ -1,6 +1,6 @@
 {
   "name": "nor-flags",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Flags library for Javascript",
   "main": "src/flags.js",
   "scripts": {
@@ -23,6 +23,6 @@
   "dependencies": {
     "nor-debug": ">= 0.1.32 < 0.2.0",
     "nor-is": ">= 0.1.11 <0.2.0",
-    "nor-data": ">= 0.0.5 <0.1.0"
+    "nor-data": ">= 0.0.6 <0.1.0"
   }
 }
