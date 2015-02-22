@@ -1,6 +1,6 @@
 {
   "name": "nor-flags",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "Flags library for Javascript",
   "main": "src/flags.js",
   "scripts": {
@@ -22,8 +22,8 @@
   "homepage": "https://github.com/sendanor/nor-flags",
   "dependencies": {
     "nor-array" : ">= 0.1.7 < 0.2.0",
-    "nor-debug" : ">= 0.1.52 < 0.2.0",
+    "nor-debug" : ">= 0.1.53 < 0.2.0",
     "nor-is"    : ">= 0.1.16 < 0.2.0",
-    "nor-data"  : ">= 0.0.19  < 0.1.0"
+    "nor-data"  : ">= 0.0.20  < 0.1.0"
   }
 }
